@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI 漫剧生成器 · Demo</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>AI 漫剧生成器（Demo）</h1>
+      <p class="lead">演示模式：无需 API Key 即可生成文本脚本与占位图。部署后端并填写 Key 后可切换到真实 AI 模式。</p>
+    </header>
+
+    <section class="controls card">
+      <label>标题
+        <input id="title" placeholder="例如：逃离机械城市" />
+      </label>
+      <label>主题/风格
+        <input id="theme" placeholder="例如：赛博朋克 / 少年热血 / 幽默" />
+      </label>
+      <label>角色（用逗号分隔）
+        <input id="characters" placeholder="例如：小明,机器狗,教授" />
+      </label>
+      <label>分镜数量
+        <input id="panels" type="number" min="1" max="12" value="6" />
+      </label>
+
+      <div class="actions">
+        <button id="generate">生成漫剧（Demo）</button>
+        <button id="generate-real" title="在你部署后端并配置 API 后可启用真实生成功能">生成（真实，需后端）</button>
+        <button id="downloadZip">下载 ZIP</button>
+      </div>
+
+      <div class="hint">
+        · 当前前端运行在 Demo 模式（本地合成文本 + 占位图片）。
+        · 想启用真实 AI：部署 server（见 /server README），并在下方设置 API URL。
+      </div>
+
+      <label class="api-row">后端 API 地址（可选，当你部署后端到 Vercel/Render 时填写）：
+        <input id="apiUrl" placeholder="例如: https://ai-comic-api-yourapp.vercel.app" />
+      </label>
+    </section>
+
+    <section id="status" class="status">准备就绪。</section>
+
+    <section id="preview" class="preview"></section>
+
+    <footer class="footer">© AI 漫剧生成器 · Demo · 数据/图片示例为占位内容</footer>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
